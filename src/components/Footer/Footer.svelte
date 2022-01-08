@@ -73,8 +73,8 @@
 				{/each}
 			</div>
 		</div>
-		<div class="footercontent">
-			<span class="copyright">© Copyright Kwoth 2022</span>
+		<div class="footercontent copyrightcontent">
+			<span class="copyright">© Copyright Kwoth 2022<br />Website by rjt#2336</span>
 		</div>
 	</div>
 </div>
@@ -111,12 +111,16 @@
 		padding: 0px;
 	}
 
+	.copyrightcontent {
+		text-align: right;
+	}
+
 	.copyright {
 		font-family: 'Source Sans Pro';
 		font-style: normal;
 		font-weight: normal;
 		font-size: 16px;
-		line-height: 20px;
+		line-height: 24px;
 		text-align: right;
 		color: rgba(230, 238, 255, 0.5);
 	}

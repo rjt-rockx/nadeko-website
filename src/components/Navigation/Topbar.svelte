@@ -38,7 +38,7 @@
 		align-items: center;
 		background: #0f1012;
 		height: 96px;
-		width: 100%;
+		max-width: 100%;
 		padding: 0px 64px;
 	}
 

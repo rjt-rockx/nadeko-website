@@ -1,2 +1,3 @@
 # nadeko-website
- A website for Nadekobot
+
+A website for Nadekobot
