@@ -28,7 +28,7 @@
 		font-size: 12px;
 		line-height: 15px;
 		text-transform: uppercase;
-		color: #00b0f4;
+		color: #4790f0;
 		margin-bottom: 16px;
 	}
 </style>

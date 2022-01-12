@@ -29,6 +29,6 @@
 	}
 
 	.footerlink:hover {
-		color: #00b0f4;
+		color: rgba(242, 247, 255, 0.75);
 	}
 </style>

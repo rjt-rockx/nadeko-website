@@ -1,9 +1,10 @@
 <script lang="ts">
-	export let target: string;
+	export let href: string;
 	export let text: string;
+	export let primary = false;
 </script>
 
-<a class="linkcontainer" href={target}>
+<a class="linkcontainer" class:primary {href}>
 	<span class="linktext">{text}</span>
 </a>
 
@@ -14,11 +15,23 @@
 	}
 
 	.linkcontainer:hover {
-		color: #4790f0;
+		color: rgba(242, 247, 255, 0.75);
 	}
 
 	.linkcontainer:active {
+		color: rgba(242, 247, 255, 0.75);
+	}
+
+	.primary {
 		color: #4790f0;
+	}
+
+	.primary:hover {
+		color: #75acf4;
+	}
+
+	.primary:active {
+		color: #75acf4;
 	}
 
 	.linktext {

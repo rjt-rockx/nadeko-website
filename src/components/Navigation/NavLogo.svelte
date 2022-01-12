@@ -1,12 +1,10 @@
 <script>
-	export let logo =
-		'https://cdn.discordapp.com/avatars/116275390695079945/0de545b2efc0baeda0fbf458f3f884dc.png?size=2048';
-	export let target = '/';
+	export let href = '/';
 </script>
 
-<a href={target}>
+<a {href}>
 	<div class="container">
-		<img class="logo" src={logo} alt="Nadeko logo" />
+		<img class="logo" src="avatar.png" alt="Nadeko logo" />
 		<span class="wordmark">NadekoBot</span>
 	</div>
 </a>

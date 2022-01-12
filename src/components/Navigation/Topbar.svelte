@@ -1,31 +1,14 @@
 <script>
 	import NavLink from './NavLink.svelte';
 	import NavLogo from './NavLogo.svelte';
-	const routes = [
-		{
-			name: 'Invite',
-			url: '/invite'
-		},
-		{
-			name: 'Commands',
-			url: '/commands'
-		},
-		{
-			name: 'Suggestions',
-			url: '/suggestions'
-		},
-		{
-			name: 'Support',
-			url: 'https://discord.gg/nadekobot'
-		}
-	];
+	export let navigationTargets;
 </script>
 
 <div class="header">
 	<div class="leftPart">
 		<NavLogo />
-		{#each routes as route}
-			<NavLink target={route.url} text={route.name} />
+		{#each navigationTargets as navTarget}
+			<NavLink href={navTarget.url} text={navTarget.name} primary={navTarget.primary} />
 		{/each}
 	</div>
 </div>
@@ -40,6 +23,7 @@
 		height: 96px;
 		max-width: 100%;
 		padding: 0px 64px;
+		position: sticky;
 	}
 
 	.leftPart {
