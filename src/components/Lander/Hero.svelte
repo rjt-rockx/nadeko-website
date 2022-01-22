@@ -18,15 +18,17 @@
 <style>
 	.section {
 		display: flex;
-		max-width: 100%;
+		max-width: 75%;
 		height: auto;
 		align-items: center;
 		justify-content: center;
-		padding: 64px;
+		margin: 64px;
 	}
 	.heroGroup {
 		display: flex;
 		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 48px;
 		align-items: center;
 		padding: 0px;
 	}
@@ -34,7 +36,6 @@
 		border-radius: 100%;
 		width: 192px;
 		height: 192px;
-		margin-right: 48px;
 	}
 
 	.heroDetails {
