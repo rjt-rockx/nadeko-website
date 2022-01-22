@@ -25,13 +25,15 @@
 		align-items: center;
 		padding: 64px;
 		background: #0f1012;
+		max-width: calc(100% - 128px);
+		overflow: hidden;
 	}
 
 	.footer {
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
-		align-items: flex-start;
+		align-items: center;
 		width: 100%;
 		padding: 0px;
 	}
@@ -52,7 +54,9 @@
 	}
 
 	.copyrightcontent {
+		display: flex;
 		text-align: right;
+		align-items: center;
 	}
 
 	.copyright {

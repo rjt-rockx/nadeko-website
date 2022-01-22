@@ -21,7 +21,8 @@
 		align-items: center;
 		background: #0f1012;
 		height: 96px;
-		max-width: 100%;
+		max-width: calc(100% - 128px);
+		overflow: hidden;
 		padding: 0px 64px;
 		position: sticky;
 	}
