@@ -1,10 +1,10 @@
 <script>
-	import Button from '../Button/Button.svelte';
+	import Button from '../Controls/Button.svelte';
 </script>
 
 <div class="section">
 	<div class="heroGroup">
-		<img class="heroAvatar" src="heroavatar.png" alt="Nadekobot Avatar" />
+		<img class="heroAvatar" src="images/heroavatar.png" alt="Nadekobot Avatar" />
 		<div class="heroDetails">
 			<h2 class="tagline">One Discord bot to replace a ton.</h2>
 			<div class="buttons">

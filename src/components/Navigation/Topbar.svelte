@@ -1,7 +1,16 @@
 <script>
 	import NavLink from './NavLink.svelte';
 	import NavLogo from './NavLogo.svelte';
-	export let navigationTargets;
+	const navigationTargets = [
+		{
+			name: 'Commands',
+			url: '/commands'
+		},
+		{
+			name: 'Suggestions',
+			url: '/suggestions'
+		}
+	];
 </script>
 
 <div class="header">

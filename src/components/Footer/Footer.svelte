@@ -1,6 +1,66 @@
 <script>
 	import FooterSection from './FooterSection.svelte';
-	export let sections;
+	const sections = [
+		{
+			name: 'Nadeko',
+			links: [
+				{
+					name: 'Invite',
+					url: '/invite'
+				},
+				{
+					name: 'Commands',
+					url: '/commands'
+				},
+				{
+					name: 'Suggest',
+					url: '/suggest'
+				},
+				{
+					name: 'Support',
+					url: '/support'
+				}
+			]
+		},
+		{
+			name: 'Selfhosting',
+			links: [
+				{
+					name: 'Download',
+					url: '/download'
+				},
+				{
+					name: 'Documentation',
+					url: '/docs'
+				},
+				{
+					name: 'Source Code',
+					url: '/source'
+				},
+				{
+					name: 'Embed builder',
+					url: '/embeds'
+				}
+			]
+		},
+		{
+			name: 'Guides',
+			links: [
+				{
+					name: 'Windows',
+					url: '/guides/windows'
+				},
+				{
+					name: 'Linux',
+					url: '/guides/linux'
+				},
+				{
+					name: 'Mac',
+					url: '/guides/mac'
+				}
+			]
+		}
+	];
 </script>
 
 <div class="section">

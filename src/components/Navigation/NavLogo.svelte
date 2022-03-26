@@ -4,7 +4,7 @@
 
 <a {href}>
 	<div class="container">
-		<img class="logo" src="avatar.png" alt="Nadeko logo" />
+		<img class="logo" src="images/avatar.png" alt="Nadeko logo" />
 		<span class="wordmark">NadekoBot</span>
 	</div>
 </a>

@@ -1,7 +1,7 @@
 <script lang="ts">
 	export let title: string;
 	export let description: string | undefined;
-	export let imageSource: string | undefined = 'xp.png';
+	export let imageSource: string | undefined = 'images/xp.png';
 	export let imageAlt: string | undefined = 'xp';
 	export let imageOnRight = true;
 	export let image: boolean = !!(imageSource && imageAlt);
@@ -21,7 +21,7 @@
 			</div>
 		{:else}
 			<div class="section">
-				<div class="imageContainer rightAlign">
+				<div class="imageContainer leftAlign">
 					<img class="image" src={imageSource} alt={imageAlt} />
 				</div>
 				<div class="text">
@@ -85,8 +85,8 @@
 		display: flex;
 	}
 
-	.rightAlign {
-		justify-content: flex-end;
+	.leftAlign {
+		justify-content: flex-start;
 	}
 
 	.image {
