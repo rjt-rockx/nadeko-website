@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 	<head>
 		<meta charset="utf-8" />
 		<meta name="description" content="" />
@@ -14,19 +15,19 @@
 				margin: 0;
 				padding: 0;
 			}
+
 			img.emoji {
 				width: 1em;
 				pointer-events: none;
 			}
 		</style>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<script
-			src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js"
-			crossorigin="anonymous"
-		></script>
-		%svelte.head%
+		<script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+		%sveltekit.head%
 	</head>
+
 	<body>
-		<div id="svelte">%svelte.body%</div>
+		<div id="svelte">%sveltekit.body%</div>
 	</body>
+
 </html>

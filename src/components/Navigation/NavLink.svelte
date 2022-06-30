@@ -25,6 +25,7 @@
 	.current:hover,
 	.current:active {
 		color: white;
+		cursor: default;
 	}
 
 	.primary {

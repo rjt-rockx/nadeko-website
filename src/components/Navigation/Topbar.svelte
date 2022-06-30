@@ -28,12 +28,13 @@
 		flex-direction: row;
 		justify-content: space-between;
 		align-items: center;
-		background: #0f1012;
+		background: linear-gradient(to top, #0f101200 0%, #0f101280 33%, #0f1012 100%);
 		height: 96px;
 		max-width: calc(100% - 128px);
 		overflow: hidden;
 		padding: 0px 64px;
 		position: sticky;
+		top: 0px;
 	}
 
 	.leftPart {

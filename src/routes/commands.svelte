@@ -146,7 +146,7 @@
 		margin: unset;
 		min-width: 256px;
 		height: 720px;
-		overflow-y: scroll;
+		overflow-y: auto;
 	}
 
 	.module {
