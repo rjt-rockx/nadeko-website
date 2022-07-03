@@ -24,7 +24,7 @@
 	</button>
 {/if}
 
-<style>
+<style lang="scss">
 	.button {
 		display: flex;
 		justify-content: center;
@@ -42,19 +42,18 @@
 		background: #373d49;
 		flex-grow: 1;
 		flex-basis: 0;
-	}
 
-	.button:hover,
-	.button:active {
-		background: #292e37;
-	}
+		&:hover,
+		&:active {
+			background: #292e37;
+		}
 
-	.primary {
-		background: #4790f0;
-	}
-
-	.primary:hover,
-	.primary:active {
-		background: #356cb4;
+		&.primary {
+			background: #4790f0;
+			&:hover,
+			&:active {
+				background: #356cb4;
+			}
+		}
 	}
 </style>

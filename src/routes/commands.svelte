@@ -3,6 +3,8 @@
 	import Topbar from '../components/Navigation/Topbar.svelte';
 	import Footer from '../components/Footer/Footer.svelte';
 	import { onMount, afterUpdate } from 'svelte';
+	import Select from '../components/Controls/Select.svelte';
+	import CommandCard from '../components/Commands/CommandCard.svelte';
 
 	const renderTwemoji = () => {
 		// @ts-ignore
@@ -17,38 +19,27 @@
 	const commandListURL = (version) =>
 		`https://nadeko-pictures.nyc3.digitaloceanspaces.com/cmds/${version}.json`;
 
+	const fetchVersions = async () => {
+		const response = await fetch(commandListURL('versions'));
+		const versions = await response.json();
+		return versions;
+	};
+
 	const fetchCommands = async (version) => {
-		const response = await fetch(commandListURL(version));
+		const response = await fetch(commandListURL(version.value));
 		const json = await response.json();
+		console.log(`Fetched ${version.value} commands`);
 		return {
 			modules: Object.keys(json),
 			allCommands: json,
-			commands: (module) => json[module]
+			commands: (module) => (module ? json[module] : Object.values(json).flat())
 		};
 	};
 
-	let currentModule: string = '';
-	let version: string = '4.0.3';
+	let currentModule = '';
+	let selectedVersion = { label: 'v4.2.2', value: '4.2.2' };
 
-	const navigationTargets = [
-		{
-			name: 'Invite',
-			url: '/invite',
-			primary: true
-		},
-		{
-			name: 'Commands',
-			url: '/commands'
-		},
-		{
-			name: 'Suggestions',
-			url: '/suggestions'
-		},
-		{
-			name: 'Support',
-			url: '/support'
-		}
-	];
+	$: commandData = fetchCommands(selectedVersion);
 </script>
 
 <svelte:head>
@@ -60,20 +51,34 @@
 	<div class="sections">
 		<div class="header">
 			<span class="title">Commands</span>
-			<!-- Version dropdown -->
+			{#await fetchVersions() then items}
+				<Select
+					items={items.map((value) => ({ label: 'v' + value, value }))}
+					bind:selection={selectedVersion}
+				/>
+			{/await}
 			<!-- Sort toggles -->
 			<!-- Search bar -->
 		</div>
 		<div class="divider" />
 		<div class="content">
-			{#await fetchCommands(version)}
+			{#await commandData}
 				<div class="commandsPlaceholder" />
 			{:then response}
 				<ul id="modules" class="modules">
+					<li
+						class="module"
+						class:active={currentModule === ''}
+						tabindex="0"
+						on:click={() => (currentModule = '')}
+					>
+						All modules
+					</li>
 					{#each response.modules as module}
 						<li
 							class="module"
-							class:active={module === (currentModule || (currentModule = response.modules[0]))}
+							class:active={module === currentModule}
+							tabindex="0"
 							on:click={() => (currentModule = module)}
 						>
 							{module}
@@ -81,11 +86,8 @@
 					{/each}
 				</ul>
 				<div id="commands" class="commands">
-					{#each response.commands(currentModule || (currentModule = response.modules[0])) as command}
-						<div class="commandCard">
-							<span class="commandName">{command.Aliases[0]}</span>
-							<p class="commandDescription">{command.Description}</p>
-						</div>
+					{#each response.commands(currentModule) as command}
+						<CommandCard {command} />
 					{/each}
 				</div>
 			{/await}
@@ -114,7 +116,10 @@
 	}
 
 	.header {
-		position: sticky;
+		display: flex;
+		align-items: center;
+		flex-direction: row;
+		gap: 16px;
 	}
 
 	.title {
@@ -147,6 +152,7 @@
 		min-width: 256px;
 		height: 720px;
 		overflow-y: auto;
+		overflow-x: visible;
 	}
 
 	.module {
@@ -161,6 +167,7 @@
 		border-radius: 4px;
 		color: rgba(230, 238, 255, 0.5);
 		transition: all 0.15s;
+		overflow-x: visible;
 	}
 
 	.module.active,
@@ -179,32 +186,5 @@
 		padding: 0;
 		gap: 16px;
 		overflow-y: scroll;
-	}
-
-	.commandCard {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-		padding: 16px;
-		background: rgba(230, 238, 255, 0.05);
-		border-radius: 4px;
-		gap: 8px;
-	}
-
-	.commandName {
-		font-family: 'Source Sans Pro';
-		font-style: normal;
-		font-weight: 600;
-		font-size: 16px;
-		color: #f2f7ff;
-	}
-
-	.commandDescription {
-		font-family: 'Source Sans Pro';
-		font-style: normal;
-		font-weight: 400;
-		font-size: 16px;
-		margin: 0;
-		color: rgba(242, 247, 255, 0.75);
 	}
 </style>

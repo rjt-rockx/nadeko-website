@@ -4,7 +4,7 @@
 	export let imageSource: string | undefined = 'images/xp.png';
 	export let imageAlt: string | undefined = 'xp';
 	export let imageOnRight = true;
-	export let image: boolean = !!(imageSource && imageAlt);
+	export let image = !!(imageSource && imageAlt);
 </script>
 
 <div class="container">
