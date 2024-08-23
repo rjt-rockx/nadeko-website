@@ -17,7 +17,6 @@
 	}
 
 	.footerlink {
-		font-family: 'Source Sans Pro';
 		font-style: normal;
 		font-weight: normal;
 		font-size: 16px;

@@ -14,8 +14,7 @@
 		role="button"
 		{href}
 		target={external ? '_blank' : '_self'}
-		on:click
-	>
+		on:click>
 		<slot />
 	</a>
 {:else}
@@ -31,7 +30,6 @@
 		align-items: center;
 		padding: 8px 16px;
 		border-radius: 4px;
-		font-family: 'Source Sans Pro';
 		font-style: normal;
 		font-weight: 400;
 		font-size: 18px;

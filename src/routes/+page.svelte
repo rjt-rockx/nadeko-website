@@ -1,23 +1,9 @@
 <script>
-	import '../app.css';
-	import Topbar from '../components/Navigation/Topbar.svelte';
-	import Button from '../components/Controls/Button.svelte';
-	import Footer from '../components/Footer/Footer.svelte';
-	import Hero from '../components/Lander/Hero.svelte';
-	import LanderSection from '../components/Lander/LanderSection.svelte';
-	import { onMount, afterUpdate } from 'svelte';
-
-	const renderTwemoji = () => {
-		// @ts-ignore
-		twemoji.parse(
-			document.body,
-			{ folder: 'svg', ext: '.svg' } // This is to specify to Twemoji to use SVGs and not PNGs
-		);
-	};
-	onMount(renderTwemoji);
-	afterUpdate(renderTwemoji);
-
-	const landerSections = [{}];
+	import Button from '$components/Controls/Button.svelte';
+	import Footer from '$components/Footer/Footer.svelte';
+	import Hero from '$components/Lander/Hero.svelte';
+	import LanderSection from '$components/Lander/LanderSection.svelte';
+	import Topbar from '$components/Navigation/Topbar.svelte';
 </script>
 
 <svelte:head>
@@ -34,29 +20,25 @@
 			image={true}
 			imageSource="images/modules.png"
 			imageAlt="A list of Nadeko's modules"
-			imageOnRight={true}
-		/>
+			imageOnRight={true} />
 		<LanderSection
 			title="Customizable XP/level-up system"
 			description="Having a customizable XP system with clubs, leaderboards, level up rewards and more, Nadeko lets you modify a user's XP and even assign roles/award currency on level up!"
 			image={true}
 			imageSource="images/xp.png"
 			imageAlt="A Nadeko XP card"
-			imageOnRight={false}
-		/>
+			imageOnRight={false} />
 		<LanderSection
 			title="One of a kind currency economy"
 			description="Gamble your flowers, claim waifus, participate in events and put your currency at stake to have Nadeko decide your fate!"
 			image={true}
 			imageSource="images/currencyeconomy.png"
 			imageAlt="A leaderboard of Nadeko's users"
-			imageOnRight={true}
-		/>
+			imageOnRight={true} />
 		<LanderSection
 			title="100% Open Source"
 			description="We’re an open source project, and we rely on your donations to support the 13+ million people using Nadeko. Donate to help pay for server costs and support the bot while also getting currency rewards in return!"
-			image={false}
-		>
+			image={false}>
 			<div class="buttonGroup">
 				<Button href="/patreon">Patreon</Button>
 				<Button href="/paypal">PayPal</Button>

@@ -17,7 +17,7 @@
 	<div class="leftPart">
 		<NavLogo />
 		{#each navigationTargets as navTarget}
-			<NavLink href={navTarget.url} text={navTarget.name} primary={navTarget.primary} />
+			<NavLink href={navTarget.url} text={navTarget.name} />
 		{/each}
 	</div>
 </div>

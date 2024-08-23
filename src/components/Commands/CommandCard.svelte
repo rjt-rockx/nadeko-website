@@ -1,16 +1,11 @@
 <script lang="ts">
-	import domPurify from 'dompurify';
+	import domPurify from 'isomorphic-dompurify';
 	import { marked } from 'marked';
-	interface Command {
-		Aliases: string[];
-		Description: string;
-		Usage: string[] | null;
-		Submodule: string;
-		Module: string;
-		Options: string[] | null;
-		Requirements: string[] | null;
-	}
+
+	import type { Command } from '$lib/types';
+
 	export let command: Command;
+
 	$: permissions =
 		Array.isArray(command.Requirements) && command.Requirements.length
 			? {
@@ -31,10 +26,11 @@
 							.trim()
 					),
 					botOwner: command.Requirements.some((requirement) => requirement.includes('Bot Owner'))
-			  }
+				}
 			: undefined;
-	const renderMarkdown = (markdown: string) =>
-		domPurify.sanitize(
+
+	const renderMarkdown = (markdown: string) => {
+		return domPurify.sanitize(
 			marked.parse(markdown, {
 				gfm: true,
 				breaks: true,
@@ -42,6 +38,7 @@
 				smartypants: true
 			})
 		);
+	};
 </script>
 
 <div class="commandCard">
@@ -57,14 +54,16 @@
 			{/each}
 		</p>
 	{/if}
-	<div class="usage">
-		<span class="overline">Usage</span>
-		<p class="commandUsage">
-			{#each command.Usage as usage}
-				<p>{usage}</p>
-			{/each}
-		</p>
-	</div>
+	{#if command.Usage}
+		<div class="usage">
+			<span class="overline">Usage</span>
+			<p class="commandUsage">
+				{#each command.Usage as usage}
+					<p>{usage}</p>
+				{/each}
+			</p>
+		</div>
+	{/if}
 	<div class="aliases">
 		<span class="overline">Aliases</span>
 		<p class="commandAliases">
@@ -119,7 +118,6 @@
 	}
 
 	.commandName {
-		font-family: 'Source Sans Pro';
 		font-style: normal;
 		font-weight: 600;
 		font-size: 16px;
@@ -131,7 +129,6 @@
 	.commandAliases,
 	.commandOptions,
 	.permissionName {
-		font-family: 'Source Sans Pro';
 		font-style: normal;
 		font-weight: 400;
 		font-size: 16px;
@@ -152,7 +149,6 @@
 	}
 
 	.overline {
-		font-family: 'Source Sans Pro';
 		font-style: normal;
 		font-weight: 600;
 		font-size: 12px;
@@ -162,7 +158,6 @@
 	}
 
 	.commandLocation {
-		font-family: 'Source Sans Pro';
 		font-style: normal;
 		font-weight: 400;
 		font-size: 14px;

@@ -21,3 +21,7 @@ declare module '*.svg?url' {
 	const content: string;
 	export default content;
 }
+
+declare interface Window {
+	twemoji: any; // eslint-disable-line @typescript-eslint/no-explicit-any
+}

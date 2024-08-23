@@ -13,7 +13,8 @@
 			<div class="section reverseWrap">
 				<div class="text part">
 					<h4 class="title">{title}</h4>
-					{#if description} <p class="description">{description}</p>{/if}
+					{#if description}
+						<p class="description">{description}</p>{/if}
 				</div>
 				<div class="imageContainer">
 					<img class="image" src={imageSource} alt={imageAlt} />
@@ -26,7 +27,8 @@
 				</div>
 				<div class="text">
 					<h4 class="title">{title}</h4>
-					{#if description} <p class="description">{description}</p>{/if}
+					{#if description}
+						<p class="description">{description}</p>{/if}
 				</div>
 			</div>
 		{/if}
@@ -35,7 +37,8 @@
 		<div class="section">
 			<div class="text center">
 				<h4 class="title">{title}</h4>
-				{#if description} <p class="description">{description}</p>{/if}
+				{#if description}
+					<p class="description">{description}</p>{/if}
 			</div>
 		</div>
 		<slot />
@@ -96,7 +99,6 @@
 	}
 
 	.title {
-		font-family: 'Source Sans Pro';
 		font-style: normal;
 		font-weight: 600;
 		font-size: 32px;
@@ -107,7 +109,6 @@
 	}
 
 	.description {
-		font-family: 'Source Sans Pro';
 		font-style: normal;
 		font-weight: normal;
 		font-size: 18px;

@@ -77,3 +77,4 @@ typings/
 
 # SvelteKit files
 .svelte-kit/
+build

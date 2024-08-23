@@ -73,7 +73,11 @@
 			</div>
 		</div>
 		<div class="footercontent copyrightcontent">
-			<span class="copyright">© Copyright Kwoth 2022<br />Website by rjt#2336</span>
+			<span class="copyright">
+				© Copyright Kwoth 2022
+				<br />
+				Website by rjt#2336
+			</span>
 		</div>
 	</div>
 </div>
@@ -120,7 +124,6 @@
 	}
 
 	.copyright {
-		font-family: 'Source Sans Pro';
 		font-style: normal;
 		font-weight: normal;
 		font-size: 16px;

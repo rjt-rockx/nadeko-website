@@ -25,7 +25,6 @@
 	}
 
 	.wordmark {
-		font-family: 'Noto Sans';
 		font-style: normal;
 		font-weight: bold;
 		font-size: 18px;

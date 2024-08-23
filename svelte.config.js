@@ -1,19 +1,36 @@
-import adapter from '@sveltejs/adapter-auto';
-import preprocess from 'svelte-preprocess';
-import svg from '@poppanator/sveltekit-svg';
+import adapter from '@sveltejs/adapter-static';
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
+import { sveltePreprocess } from 'svelte-preprocess';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	// Consult https://github.com/sveltejs/svelte-preprocess
+	// Consult https://kit.svelte.dev/docs/integrations#preprocessors
 	// for more information about preprocessors
-	preprocess: preprocess(),
+	preprocess: [
+		vitePreprocess(),
+		sveltePreprocess({
+			typescript: true,
+			postcss: true
+		})
+	],
 
 	kit: {
-		adapter: adapter(),
+		adapter: adapter({
+			pages: 'build',
+			assets: 'build',
+			fallback: "index.html",
+			precompress: false,
+			strict: true
+		}),
 
-		vite: {
-			plugins: [svg()]
+		alias: {
+			$components: './src/components',
+			$lib: './src/lib'
 		}
+	},
+
+	vitePlugin: {
+		inspector: true
 	}
 };
 
