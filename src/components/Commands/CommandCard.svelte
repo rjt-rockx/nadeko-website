@@ -29,13 +29,11 @@
 				}
 			: undefined;
 
-	const renderMarkdown = (markdown: string) => {
+	const renderMarkdown = async (markdown: string) => {
 		return domPurify.sanitize(
-			marked.parse(markdown, {
+			await marked.parse(markdown, {
 				gfm: true,
-				breaks: true,
-				smartLists: true,
-				smartypants: true
+				breaks: true
 			})
 		);
 	};
@@ -44,13 +42,17 @@
 <div class="commandCard">
 	<span class="commandName">{command.Aliases[0]}</span>
 	<p class="commandDescription">
-		{@html renderMarkdown(command.Description)}
+		{#await renderMarkdown(command.Description) then description}
+			{@html description}
+		{/await}
 	</p>
 	{#if command.Options}
 		<span class="overline">Options</span>
 		<p class="commandOptions">
 			{#each command.Options as option}
-				<p>{@html renderMarkdown(option)}</p>
+				{#await renderMarkdown(option) then option}
+					<p>{@html option}</p>
+				{/await}
 			{/each}
 		</p>
 	{/if}
